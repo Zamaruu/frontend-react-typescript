@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import { gray2, gray3 } from '../css/Styles';
 import React from 'react';
 import { IQuestionData } from "../bloc/QuestionData";
+import { Link } from 'react-router-dom';
 
 interface IProps{
     data: IQuestionData;
@@ -21,7 +22,15 @@ export const Question = ({data, showContent = true}: IProps) => (
                 font-size: 19px;
             `}
         >
-            {data.title}
+            <Link 
+                css={css`
+                    text-decoration: none;
+                    color: ${gray2};
+                `}
+                to={`/questions/${data.questionId}`}
+            >
+                {data.title}
+            </Link>
         </div>
         <div
              css={css`

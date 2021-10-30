@@ -25,6 +25,12 @@ export const getUnanswerdQuestions= async (): Promise<IQuestionData[]> => {
   return questions.filter(q => q.answers.length === 0);
 }
 
+export const getQuestion = async (questionId: number,): Promise<IQuestionData | null> => {
+  await wait(500);
+  const results = questions.filter((q) => q.questionId === questionId);
+  return results.length === 0 ? null : results[0];
+};
+
 // export const getUnanswerdQuestions = (): IQuestionData[] => {
 //   return questions.filter(q => q.answers.length === 0);
 // }

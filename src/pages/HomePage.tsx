@@ -3,12 +3,13 @@ import { css } from '@emotion/react';
 import { useEffect, useState } from "react";
 import { getUnanswerdQuestions, IQuestionData } from "../bloc/QuestionData";
 import { PageTitle } from "../components/PageTitle";
-import { Question } from "../components/Question";
 import { QuestionList } from "../components/QuestionList";
 import { Page } from "./Page";
 import { PrimaryButton } from '../css/Styles';
+import { useNavigate } from 'react-router';
 
 export const HomePage = () => {
+    const navigate = useNavigate();
     const [questionState, setQuestions] = useState<IQuestionData[]>([]);
     const [loadingState, setLoading] = useState<boolean>(true);
 
@@ -24,7 +25,7 @@ export const HomePage = () => {
 
     //Methods
     const handleAskQuestionClick = () => {
-        console.log('TODO- move to the AskPage');
+        navigate('ask');
     }
 
 
